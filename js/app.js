@@ -1,6 +1,6 @@
 const todoList = document.getElementById("todo-list");
 const formTodo = document.getElementById("form-todo");
-const inputTdoList = document.getElementById("input-todo-list");
+const inputTodoList = document.getElementById("input-todo-list");
 const allBtn = document.getElementById("all");
 const toDoBtn = document.getElementById("to-do");
 const doneBtn = document.getElementById("done");
@@ -29,11 +29,14 @@ function FormTodoFuntian (event) {
                         <button type="submit" class="toggle-btn2">
                                 <img src="img/Component 2.png">
                         </button>
-    <span>${formTodo.value}</span> 
+    <span>${formTodo.task.value}</span> 
     </div>
     <button type="submit" class="delete-btn">
         ✕
   </button>`
+  if (formTodo.task.value == ""){
+    return;
+  }
   todoList.appendChild(listItem);
 }
 
@@ -43,8 +46,41 @@ function todoBtnFunction (){
         if (element.classList.contains("checked")){
             element.classList.add("hide");
         }
+        else{
+            element.classList.remove("hide");
+        }
     }
     toDoBtn.classList.add("active");
     allBtn.classList.remove("active");
+    doneBtn.classList.remove("active");
+}
+
+doneBtn.addEventListener("click" , doneBtnFunction);
+function doneBtnFunction (){
+    for (let element of items){
+        if (element.classList.contains("checked")){
+            element.classList.remove("hide");
+        }
+        else{
+            element.classList.add("hide");
+        }
+    }
+    toDoBtn.classList.remove("active");
+    allBtn.classList.remove("active");
+    doneBtn.classList.add("active");
+}
+
+allBtn.addEventListener("click" , allBtnFunction);
+function allBtnFunction (){
+    for (let element of items){
+        if (element.classList.contains("checked")){
+            element.classList.remove("hide");
+        }
+        else{
+            element.classList.remove("hide");
+        }
+    }
+    toDoBtn.classList.remove("active");
+    allBtn.classList.add("active");
     doneBtn.classList.remove("active");
 }

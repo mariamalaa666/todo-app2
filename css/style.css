@@ -51,17 +51,20 @@ li{
 }
 .div-flex{
     display: flex;
+    align-items: center;
     gap: 20px;
 }
 .toggle-btn{
     background: none;
     border: none;
     display: block;
+    height: 30px;
 }
 .toggle-btn2{
     background: none;
     border: none;
     display: none;
+    height: 30px;
 }
 .div-buttons{
     display: flex;
@@ -78,8 +81,7 @@ li{
     padding: 10px 15px;
 }
 #to-do{
-    background: #09B285;
-    color: #FFF;
+    background: #FFF;
     border-radius: 10px;
     border: none;
     text-align: center;
@@ -93,10 +95,14 @@ li{
     padding: 10px 15px;
 }
 .delete-btn{
+    opacity: 0;
     background: none;
     border: none;
     display: block;
     font-size: 20px;
+}
+li:hover .delete-btn{
+    opacity: 1;
 }
 .div-1{
     width: 45%;
@@ -135,9 +141,17 @@ li.checked .toggle-btn2{
 span{
     pointer-events: none;
 }
-.active{
+#all.active{
     color: #FFF;
-    background: #09B285;
+    background-color: #09B285;
+}
+#to-do.active{
+    color: #FFF;
+    background-color: #09B285;
+}
+#done.active{
+    color: #FFF;
+    background-color: #09B285;
 }
 .hide{
     display: none;
