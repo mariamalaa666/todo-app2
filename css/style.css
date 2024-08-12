@@ -20,13 +20,19 @@ section{
     justify-content: space-between;
 }
 #input-todo-list{
-    border-radius: 10px;
     background: #FFF;
     border: none;
     width: 100%;
     height: 40px;
     padding: 0 10px;
     width: 100%;
+    outline: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+    margin-bottom: 24px;
+}
+#input-todo-list:focus{
+    border: 1px solid #09B285;
 }
 #form-todo{
     width: 100%;
@@ -34,20 +40,25 @@ section{
 #add-task{
     display: none;
     border: none;
+    border-radius: 8px;
 }
 li{
     list-style: none;
-    padding: 15px;
+    height: 48px;
+    padding: 0px 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 15px;
     background: #FFF;
-    margin-bottom: 15px;
     width: 100%;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 #todo-list{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .div-flex{
     display: flex;
@@ -69,30 +80,36 @@ li{
 .div-buttons{
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin: 15px 0;
+    gap: 24px;
+    margin-bottom: 24px;
     width: 100%;
 }
 #all{
     background: #FFF;
-    border-radius: 10px;
     border: none;
     text-align: center;
     padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 #to-do{
     background: #FFF;
-    border-radius: 10px;
     border: none;
     text-align: center;
     padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
 }
 #done{
     background: #FFF;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     text-align: center;
     padding: 10px 15px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
+}
+.div-buttons span{
+    color: #09B285;
 }
 .delete-btn{
     opacity: 0;
@@ -105,13 +122,17 @@ li:hover .delete-btn{
     opacity: 1;
 }
 .div-1{
-    width: 45%;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+}
+.img-div-1{
+    height: 100%;
 }
 .div-2{
-    width: 45%;
+    width: 50%;
     background: #F5F5F5;
     box-shadow: -4px 0px 20px 4px rgba(0, 0, 0, 0.10);
     height: 100vh;
@@ -152,6 +173,15 @@ span{
 #done.active{
     color: #FFF;
     background-color: #09B285;
+}
+.div-buttons #done.active span{
+    color: #FFF;
+}
+.div-buttons #all.active span{
+    color: #FFF;
+}
+.div-buttons #to-do.active span{
+    color: #FFF;
 }
 .hide{
     display: none;

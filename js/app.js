@@ -4,21 +4,28 @@ const inputTodoList = document.getElementById("input-todo-list");
 const allBtn = document.getElementById("all");
 const toDoBtn = document.getElementById("to-do");
 const doneBtn = document.getElementById("done");
-const items = document.querySelectorAll("#todo-list li");
+let items = document.querySelectorAll("#todo-list li");
+const spanAll = document.getElementById("span-number-all");
+const spanTodo = document.getElementById("span-number-todo");
+const spanDone = document.getElementById("span-number-done");
+let itemsChecked = document.querySelectorAll("#todo-list li.checked");
+const ul = document.getElementById("todo-list");
+
 todoList.addEventListener("click" , todoFunction);
 function todoFunction (e) {
     console.log(e.target.nodeName);
     if (e.target.nodeName === "LI") {
         e.target.classList.toggle("checked");
-       
+        countNumber();
     }
     if (e.target.nodeName === "BUTTON"){
         todoList.removeChild(e.target.parentElement);
+        countNumber();
     }
 }
 
-formTodo.addEventListener("submit" , FormTodoFuntian);
-function FormTodoFuntian (event) {
+formTodo.addEventListener("submit" , addFuntian);
+function addFuntian (event) {
     event.preventDefault ();
     const listItem = document.createElement("li");
     listItem.innerHTML = `
@@ -38,6 +45,7 @@ function FormTodoFuntian (event) {
     return;
   }
   todoList.appendChild(listItem);
+  countNumber();
 }
 
 toDoBtn.addEventListener("click" , todoBtnFunction);
@@ -84,3 +92,21 @@ function allBtnFunction (){
     allBtn.classList.add("active");
     doneBtn.classList.remove("active");
 }
+
+function countNumber () {
+    items = document.querySelectorAll("#todo-list li");
+    let allCount = items.length;
+    let todoCount = 0;
+    let doneCount = 0;
+    for (let elementsChecked of items) {
+        if (elementsChecked.classList.contains("checked")){
+            doneCount++;
+        } else{
+            todoCount-=-1;
+        }
+    }
+    spanTodo.innerHTML = `(${todoCount})`;
+    spanDone.innerHTML = `(${doneCount})`;
+    spanAll.innerHTML = `(${allCount})`;
+}
+countNumber();
