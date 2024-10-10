@@ -128,8 +128,13 @@ li:hover .delete-btn{
     justify-content: center;
     height: 100vh;
 }
+.div-1-container{
+    width: 100%;
+}
 .img-div-1{
-    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
 }
 .div-2{
     width: 50%;
@@ -185,9 +190,6 @@ span{
 }
 .hide{
     display: none;
-}
-.img-div-1{
-    width: 100%;
 }
 @media screen and (max-width:850px){
     section{

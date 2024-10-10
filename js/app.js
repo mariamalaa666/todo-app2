@@ -45,6 +45,7 @@ function addFuntian (event) {
     return;
   }
   todoList.appendChild(listItem);
+  formTodo.reset();
   countNumber();
 }
 
